@@ -17,16 +17,34 @@ public class PasswordGenerator {
         main.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         JPanel PanelPasswordGen = new JPanel();
-        PanelPasswordGen.setBounds(50,20,200,50);
+        PanelPasswordGen.setBounds(50,20,200,30);
         PanelPasswordGen.setBackground(Color.PINK);
         main.add(PanelPasswordGen);
 
-        JLabel Password = new JLabel("Password");
-        Password.setBounds(50,20,200,50);
+        JLabel Password = new JLabel("Password",SwingConstants.CENTER);
+        Password.setBounds(50,40,200,50);
         Password.setVisible(true);
         Password.setFont(new Font("Kalam", Font.PLAIN,15));
         PanelPasswordGen.add(Password);
-        main.setVisible(true);
 
+        JButton EasyButton = new JButton("Generate Easy Password");
+        EasyButton.setBounds(20,80,200,50);
+        EasyButton.setBackground(new Color(229,115,115));
+        EasyButton.setOpaque(true);
+        EasyButton.setBorderPainted(false);
+        EasyButton.putClientProperty("JButton.buttonType", "square");
+        main.add(EasyButton);
+
+        JButton MediumButton = new JButton("Generate Medium Password");
+        MediumButton.setBounds(20,130,200,50);
+        MediumButton.setForeground(Color.YELLOW);
+        main.add(MediumButton);
+
+        JButton HardButton = new JButton("Generate Medium Password");
+        HardButton.setBounds(20,180,200,50);
+        HardButton.setForeground(Color.RED);
+        main.add(HardButton);
+
+        main.setVisible(true);
     }
 }
