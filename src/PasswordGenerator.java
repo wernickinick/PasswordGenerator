@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.random.*;
 
 public class PasswordGenerator {
     String easy = "";
@@ -29,21 +30,25 @@ public class PasswordGenerator {
 
         JButton EasyButton = new JButton("Generate Easy Password");
         EasyButton.setBounds(20,80,200,50);
-        EasyButton.setBackground(new Color(229,115,115));
-        EasyButton.setOpaque(true);
-        EasyButton.setBorderPainted(false);
-        EasyButton.putClientProperty("JButton.buttonType", "square");
         main.add(EasyButton);
 
         JButton MediumButton = new JButton("Generate Medium Password");
         MediumButton.setBounds(20,130,200,50);
-        MediumButton.setForeground(Color.YELLOW);
         main.add(MediumButton);
 
         JButton HardButton = new JButton("Generate Medium Password");
         HardButton.setBounds(20,180,200,50);
-        HardButton.setForeground(Color.RED);
         main.add(HardButton);
+
+
+        //create a random class so the strung will create random characters
+        EasyButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        //this is just random
 
         main.setVisible(true);
     }
