@@ -32,7 +32,7 @@ public class PasswordGenerator {
         MediumButton.setBounds(20,130,200,50);
         main.add(MediumButton);
 
-        JButton HardButton = new JButton("Generate Medium Password");
+        JButton HardButton = new JButton("Generate Hard Password");
         HardButton.setBounds(20,180,200,50);
         main.add(HardButton);
 
@@ -41,20 +41,40 @@ public class PasswordGenerator {
         EasyPopUp.setLocationRelativeTo(null);
         EasyPopUp.setVisible(false);
         EasyPopUp.setLayout(null);
+        EasyPopUp.getContentPane().setBackground(new Color(173,235,179));
 
         JTextField EasyTextField = new JTextField("",SwingConstants.CENTER);
         EasyTextField.setBounds(100,20,200,50);
         EasyTextField.setVisible(true);
         EasyPopUp.add(EasyTextField);
 
-        //create a random class so the strung will create random characters
+        JButton IncludeInPassword = new JButton("Include In Password");
+        IncludeInPassword.setBounds(20,180,150,50);
+        EasyPopUp.add(IncludeInPassword);
+
+        JButton GenerateEasyRandom = new JButton("Generate One For Me");
+        GenerateEasyRandom.setBounds(230,180,150,50);
+        EasyPopUp.add(GenerateEasyRandom);
+
+
         EasyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
             EasyPopUp.setVisible(true);
             }
         });
-        //this is just random
+
+        IncludeInPassword.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            String EasyPasswordInclude = EasyTextField.getText();
+            Password.setText(EasyPasswordInclude);
+            EasyPopUp.setVisible(false);
+            }
+        });
+
+
+
 
         main.setVisible(true);
     }
