@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class PasswordGenerator {
     public static void main(String [ ] args)
@@ -56,6 +57,16 @@ public class PasswordGenerator {
         GenerateEasyRandom.setBounds(230,180,150,50);
         EasyPopUp.add(GenerateEasyRandom);
 
+        GenerateEasyRandom.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String GeneratedPassword = EasyGenerator.GeneratePassword();
+                Password.setText(GeneratedPassword);
+                EasyPopUp.setVisible(false);
+                //continue working on 5 random letters
+            }
+        });
+
 
         EasyButton.addActionListener(new ActionListener() {
             @Override
@@ -67,12 +78,13 @@ public class PasswordGenerator {
         IncludeInPassword.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+            EasyGenerator EasyGen = new EasyGenerator();
             String EasyPasswordInclude = EasyTextField.getText();
-            Password.setText(EasyPasswordInclude);
+            String ExtraRandom = EasyGen.GeneratePassword();
+            Password.setText(EasyPasswordInclude + ExtraRandom + "!");
             EasyPopUp.setVisible(false);
             }
         });
-
 
 
 

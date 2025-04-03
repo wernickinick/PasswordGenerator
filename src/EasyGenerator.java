@@ -1,19 +1,24 @@
 import java.util.Random;
-import java.util.random.RandomGenerator;
 
 class EasyGenerator {
-    Random random = new Random();
-    String IncludeinPassword;
-    int RandomNumberRange = random.nextInt();
+    private static Random random = new Random();
 
-    public EasyGenerator(String includeinPassword, int easy)
-    {
-        IncludeinPassword = includeinPassword;
+    public static String GeneratePassword() {
+        StringBuilder Password = new StringBuilder();
+        {
+            int RandomNumber = random.nextInt(100, 999);
+            Password.append(RandomNumber);
+        }
+        return Password.toString();
     }
-
-    int randomNumberRange = random.nextInt(100);
-
-
-
-
+/**
+    public static String AIPassword()
+    {
+        StringBuilder AIpassword = new StringBuilder();
+        {
+            //Continue to make random letters appear
+        }
+        //Need return statement here
+    }
+ */
 }
