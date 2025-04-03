@@ -38,13 +38,20 @@ public class PasswordGenerator {
 
         JFrame EasyPopUp = new JFrame("Easy Password Creator");
         EasyPopUp.setBounds(0,0,400,300);
+        EasyPopUp.setLocationRelativeTo(null);
+        EasyPopUp.setVisible(false);
+        EasyPopUp.setLayout(null);
 
-        EasyPopUp.setVisible(true);
+        JTextField EasyTextField = new JTextField("",SwingConstants.CENTER);
+        EasyTextField.setBounds(100,20,200,50);
+        EasyTextField.setVisible(true);
+        EasyPopUp.add(EasyTextField);
+
         //create a random class so the strung will create random characters
         EasyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+            EasyPopUp.setVisible(true);
             }
         });
         //this is just random
