@@ -36,7 +36,10 @@ public class PasswordGenerator {
         HardButton.setBounds(20,180,200,50);
         main.add(HardButton);
 
+        JFrame EasyPopUp = new JFrame("Easy Password Creator");
+        EasyPopUp.setBounds(0,0,400,300);
 
+        EasyPopUp.setVisible(true);
         //create a random class so the strung will create random characters
         EasyButton.addActionListener(new ActionListener() {
             @Override
