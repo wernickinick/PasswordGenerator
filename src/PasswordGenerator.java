@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Random;
 
 public class PasswordGenerator {
     public static void main(String [ ] args)
@@ -85,8 +84,6 @@ public class PasswordGenerator {
             EasyPopUp.setVisible(false);
             }
         });
-
-
 
         main.setVisible(true);
     }
