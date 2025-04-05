@@ -3,8 +3,7 @@ import java.util.Random;
 class EasyGenerator {
     private static Random random = new Random();
 
-    //private String Letters = ["a","b","c"]
-
+    //Creates 3 Random Numbers
     public static String GeneratePassword() {
         StringBuilder Password = new StringBuilder();
         {
@@ -14,13 +13,17 @@ class EasyGenerator {
         return Password.toString();
     }
 
+    //Creates 4 random Letters
     public static String AIPassword()
     {
-        StringBuilder AIPassword = new StringBuilder();
+        StringBuilder RandomLetters = new StringBuilder();
         {
-            //int RanomLetters = random.toString()
-            //Continue to make random letters appear
+            for(int i = 0; i < 4; i++)
+            {
+                char RandomLetter = (char) (random.nextInt(26) + 'A');
+                RandomLetters.append(RandomLetter);
+            }
         }
-        //Need return statement here
+        return RandomLetters.toString();
     }
 }

@@ -36,6 +36,7 @@ public class PasswordGenerator {
         HardButton.setBounds(20,180,200,50);
         main.add(HardButton);
 
+        //Easy Generation
         JFrame EasyPopUp = new JFrame("Easy Password Creator");
         EasyPopUp.setBounds(0,0,400,300);
         EasyPopUp.setLocationRelativeTo(null);
@@ -56,24 +57,27 @@ public class PasswordGenerator {
         GenerateEasyRandom.setBounds(230,180,150,50);
         EasyPopUp.add(GenerateEasyRandom);
 
-        GenerateEasyRandom.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String GeneratedPassword = EasyGenerator.GeneratePassword();
-                Password.setText(GeneratedPassword);
-                EasyPopUp.setVisible(false);
-                //continue working on 5 random letters
-            }
-        });
-
-
+        //Easy Jframe Generation
         EasyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            EasyPopUp.setVisible(true);
+                EasyPopUp.setVisible(true);
             }
         });
 
+        //Generates a Random 8 Character Password
+        GenerateEasyRandom.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EasyGenerator EasyGen = new EasyGenerator();
+                String RandomLetters = EasyGen.AIPassword();
+                String RandomNumbers = EasyGen.GeneratePassword();
+                Password.setText(RandomLetters + RandomNumbers + "!");
+                EasyPopUp.setVisible(false);
+            }
+        });
+
+        //Adds whatever is in the text box to the password and 3 numbers with !
         IncludeInPassword.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -84,7 +88,7 @@ public class PasswordGenerator {
             EasyPopUp.setVisible(false);
             }
         });
-
+        //Easy Generation
         main.setVisible(true);
     }
 }
