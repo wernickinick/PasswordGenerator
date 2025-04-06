@@ -41,6 +41,49 @@ public class PasswordGenerator {
         HardButton.setBounds(20,180,200,50);
         main.add(HardButton);
 
+        JFrame MediumPopUp = new JFrame("Medium Password Creator");
+        MediumPopUp.setBounds(0,0,400,300);
+        MediumPopUp.setLocationRelativeTo(null);
+        MediumPopUp.setVisible(false);
+        MediumPopUp.setLayout(null);
+        MediumPopUp.getContentPane().setBackground(new Color(255,234,173));
+
+        JTextField MediumTextField = new JTextField("",SwingConstants.CENTER);
+        MediumTextField.setBounds(100,20,200,50);
+        MediumTextField.setVisible(true);
+        MediumPopUp.add(MediumTextField);
+
+        JButton MediumIncludeInPassword = new JButton("Include In Password");
+        MediumIncludeInPassword.setBounds(20,180,150,50);
+        MediumPopUp.add(MediumIncludeInPassword);
+
+        JButton GenerateMediumRandom = new JButton("Generate One For Me");
+        GenerateMediumRandom.setBounds(230,180,150,50);
+        MediumPopUp.add(GenerateMediumRandom);
+
+        MediumButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MediumPopUp.setVisible(true);
+            }
+        });
+
+        MediumIncludeInPassword.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            MediumGenerator medgen = new MediumGenerator();
+            String FiveRandomNumbers = medgen.MediumGen();
+            String MediumIncludeIn = MediumTextField.getText();
+            if(MediumIncludeIn.isEmpty())
+            {
+                Password.setText("You Left The Text Box Blank");
+            }
+            else
+                Password.setText(MediumIncludeIn + FiveRandomNumbers);
+                MediumPopUp.setVisible(false);
+            }
+        });
+
         //Easy Generation
         JFrame EasyPopUp = new JFrame("Easy Password Creator");
         EasyPopUp.setBounds(0,0,400,300);
