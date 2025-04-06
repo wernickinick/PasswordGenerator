@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.border.*;
 
 public class PasswordGenerator {
     public static void main(String [ ] args)
@@ -11,17 +12,21 @@ public class PasswordGenerator {
         main.setResizable(false);
         main.setLayout(null);
         main.setLocationRelativeTo(null);
+        main.getContentPane().setBackground(new Color(28,33,48));
         main.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         JPanel PanelPasswordGen = new JPanel();
-        PanelPasswordGen.setBounds(50,20,200,30);
-        PanelPasswordGen.setBackground(Color.PINK);
+        PanelPasswordGen.setBounds(25,20,250,40);
+        PanelPasswordGen.setBackground(new Color(2,143,118));
         main.add(PanelPasswordGen);
+
+        Border WhiteBorder = BorderFactory.createLineBorder(Color.WHITE,1);
+        PanelPasswordGen.setBorder(WhiteBorder);
 
         JLabel Password = new JLabel("Password",SwingConstants.CENTER);
         Password.setBounds(50,40,200,50);
         Password.setVisible(true);
-        Password.setFont(new Font("Kalam", Font.PLAIN,15));
+        Password.setFont(new Font("Kalam", Font.PLAIN,18));
         PanelPasswordGen.add(Password);
 
         JButton EasyButton = new JButton("Generate Easy Password");
@@ -81,11 +86,16 @@ public class PasswordGenerator {
         IncludeInPassword.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            EasyGenerator EasyGen = new EasyGenerator();
-            String EasyPasswordInclude = EasyTextField.getText();
-            String ExtraRandom = EasyGen.GeneratePassword();
-            Password.setText(EasyPasswordInclude + ExtraRandom + "!");
-            EasyPopUp.setVisible(false);
+                EasyGenerator EasyGen = new EasyGenerator();
+                String EasyPasswordInclude = EasyTextField.getText();
+                String ExtraRandom = EasyGen.GeneratePassword();
+            if(EasyPasswordInclude.isEmpty())
+            {
+                Password.setText("You Left The Text Box Blank");
+            }
+            else
+                Password.setText(EasyPasswordInclude + ExtraRandom + "!");
+                EasyPopUp.setVisible(false);
             }
         });
         //Easy Generation
