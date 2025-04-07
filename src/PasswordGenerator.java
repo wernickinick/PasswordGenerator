@@ -21,6 +21,8 @@ public class PasswordGenerator {
         main.add(PanelPasswordGen);
 
         Border WhiteBorder = BorderFactory.createLineBorder(Color.WHITE,1);
+        Border DarkBorder = BorderFactory.createLineBorder(new Color(255,209,71),2);
+        Border GreenBorder = BorderFactory.createLineBorder(new Color(121,200,75),2);
         PanelPasswordGen.setBorder(WhiteBorder);
 
         JLabel Password = new JLabel("Password",SwingConstants.CENTER);
@@ -48,10 +50,13 @@ public class PasswordGenerator {
         MediumPopUp.setLayout(null);
         MediumPopUp.getContentPane().setBackground(new Color(255,234,173));
 
+        //Medium Generator
         JTextField MediumTextField = new JTextField("",SwingConstants.CENTER);
         MediumTextField.setBounds(100,20,200,50);
+        MediumTextField.setBackground(new Color(255,255,224));
         MediumTextField.setVisible(true);
         MediumPopUp.add(MediumTextField);
+        MediumTextField.setBorder(DarkBorder);
 
         JButton MediumIncludeInPassword = new JButton("Include In Password");
         MediumIncludeInPassword.setBounds(20,180,150,50);
@@ -79,10 +84,22 @@ public class PasswordGenerator {
                 Password.setText("You Left The Text Box Blank");
             }
             else
-                Password.setText(MediumIncludeIn + FiveRandomNumbers);
+                Password.setText("%" + MediumIncludeIn + "#" + FiveRandomNumbers + ">");
                 MediumPopUp.setVisible(false);
             }
         });
+
+        GenerateMediumRandom.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MediumGenerator medgen = new MediumGenerator();
+                String FiveRandomLetters = medgen.FiveLetterGen();
+                String RandomNumbers = medgen.MediumGen();
+                Password.setText("<" + FiveRandomLetters + "!" + RandomNumbers + "@");
+                MediumPopUp.setVisible(false);
+            }
+        });
+        //Medium Generation
 
         //Easy Generation
         JFrame EasyPopUp = new JFrame("Easy Password Creator");
@@ -94,6 +111,8 @@ public class PasswordGenerator {
 
         JTextField EasyTextField = new JTextField("",SwingConstants.CENTER);
         EasyTextField.setBounds(100,20,200,50);
+        EasyTextField.setBorder(GreenBorder);
+        EasyTextField.setBackground(new Color(230,255,204));
         EasyTextField.setVisible(true);
         EasyPopUp.add(EasyTextField);
 

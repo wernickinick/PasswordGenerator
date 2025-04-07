@@ -13,4 +13,17 @@ public class MediumGenerator {
         }
         return MediumPassword.toString();
     }
+
+    public static String FiveLetterGen()
+    {
+        StringBuilder MediumPassGen = new StringBuilder();
+        {
+            for(int i = 0; i < 6; i++)
+            {
+                char RandomLetter =  (char) (random.nextInt(26) + 'A');
+                MediumPassGen.append(RandomLetter);
+            }
+        }
+        return MediumPassGen.toString();
+    }
 }
