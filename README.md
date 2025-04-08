@@ -25,7 +25,8 @@ A simple, colorful, and user-friendly **Java-based GUI application** for generat
 
 ### 🔓Easy Password Creator
 ![Screenshot 2025-04-08 at 1 46 57 AM](https://github.com/user-attachments/assets/ecbf7bec-b297-4421-b9e0-54f05217571d)
-![Screenshot 2025-04-08 at 1 46 12 AM](https://github.com/user-attachments/assets/ebfe9b9c-5c8e-44dd-90c5-00504d468d89)
+![Screenshot 2025-04-08 at 1 47 08 AM](https://github.com/user-attachments/assets/7710ac31-92e7-4f94-8f6c-4890ebb34f65)
+
 
 
 
