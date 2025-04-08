@@ -23,6 +23,7 @@ public class PasswordGenerator {
         Border WhiteBorder = BorderFactory.createLineBorder(Color.WHITE,1);
         Border DarkBorder = BorderFactory.createLineBorder(new Color(255,209,71),2);
         Border GreenBorder = BorderFactory.createLineBorder(new Color(121,200,75),2);
+        Border RedBorder = BorderFactory.createLineBorder(new Color(130,39,29),2);
         PanelPasswordGen.setBorder(WhiteBorder);
 
         JLabel Password = new JLabel("Password",SwingConstants.CENTER);
@@ -42,6 +43,66 @@ public class PasswordGenerator {
         JButton HardButton = new JButton("Generate Hard Password");
         HardButton.setBounds(20,180,200,50);
         main.add(HardButton);
+
+        //Hard Generation
+        JFrame HardPopUp = new JFrame("Hard Password Creator");
+        HardPopUp.setBounds(0,0,400,300);
+        HardPopUp.setLocationRelativeTo(null);
+        HardPopUp.setVisible(false);
+        HardPopUp.setLayout(null);
+        HardPopUp.getContentPane().setBackground(new Color(209,67,52));
+
+        JTextField HardTextField = new JTextField("",SwingConstants.CENTER);
+        HardTextField.setBounds(100,20,200,50);
+        HardTextField.setBackground(new Color(255,118,103));
+        HardTextField.setVisible(true);
+        HardPopUp.add(HardTextField);
+        HardTextField.setBorder(RedBorder);
+
+        JButton HardIncludeInPassword = new JButton("Include In Password");
+        HardIncludeInPassword.setBounds(20,180,150,50);
+        HardPopUp.add(HardIncludeInPassword);
+
+        JButton GenerateHardRandom = new JButton("Generate One For Me");
+        GenerateHardRandom.setBounds(230,180,150,50);
+        HardPopUp.add(GenerateHardRandom);
+
+        HardButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                HardPopUp.setVisible(true);
+            }
+        });
+
+        HardIncludeInPassword.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                HardGenerator hardgen = new HardGenerator();
+                String IncludeHard = hardgen.ComplexShortGen();
+                String IncludeHardtwo = hardgen.ComplexShortGen();
+                String GrabHardText = HardTextField.getText();
+                if(GrabHardText.isEmpty())
+                {
+                    Password.setText("You Left The Text Box Blank");
+                }
+                else
+                    Password.setText(IncludeHard + GrabHardText + IncludeHardtwo);
+                    HardPopUp.setVisible(false);
+            }
+        });
+
+        GenerateHardRandom.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                HardGenerator hardgen = new HardGenerator();
+                String Generate = hardgen.ComplexGen();
+                Password.setText(Generate);
+                HardPopUp.setVisible(false);
+            }
+        });
+        //Hard Generation
+
+
 
         //Medium Generator
         JFrame MediumPopUp = new JFrame("Medium Password Creator");
