@@ -14,6 +14,7 @@ public class MediumGenerator {
         return MediumPassword.toString();
     }
 
+    //Creates 5 Random Letters
     public static String FiveLetterGen()
     {
         StringBuilder MediumPassGen = new StringBuilder();

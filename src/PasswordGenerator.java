@@ -43,6 +43,7 @@ public class PasswordGenerator {
         HardButton.setBounds(20,180,200,50);
         main.add(HardButton);
 
+        //Medium Generator
         JFrame MediumPopUp = new JFrame("Medium Password Creator");
         MediumPopUp.setBounds(0,0,400,300);
         MediumPopUp.setLocationRelativeTo(null);
@@ -50,7 +51,6 @@ public class PasswordGenerator {
         MediumPopUp.setLayout(null);
         MediumPopUp.getContentPane().setBackground(new Color(255,234,173));
 
-        //Medium Generator
         JTextField MediumTextField = new JTextField("",SwingConstants.CENTER);
         MediumTextField.setBounds(100,20,200,50);
         MediumTextField.setBackground(new Color(255,255,224));
@@ -124,7 +124,7 @@ public class PasswordGenerator {
         GenerateEasyRandom.setBounds(230,180,150,50);
         EasyPopUp.add(GenerateEasyRandom);
 
-        //Easy Jframe Generation
+        //Easy frame Generation
         EasyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
